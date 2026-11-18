@@ -6,3 +6,8 @@ backups/
 secrets/
 .DS_Store
 private/
+node_modules/
+.env.local
+.next/
+next-env.d.ts
+*.tsbuildinfo
