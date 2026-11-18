@@ -1,0 +1,7 @@
+.env
+*.log
+*.dmp
+*.bkp
+backups/
+secrets/
+.DS_Store
