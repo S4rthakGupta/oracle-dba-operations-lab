@@ -222,15 +222,15 @@ export default function Dashboard() {
           )}
         </Card>
 
-        <Card title="Recent RMAN backups" source="v$rman_backup_job_details" sections={[h?.backups]}>
+        <Card title="Recent RMAN backups" source="v$backup_set · backup sets visible from this pluggable database" sections={[h?.backups]}>
           {!h ? <Loading /> : rowsOf(h.backups).length === 0 ? (
-            <div className="empty">No RMAN backups recorded yet. They will appear here after Stage 3.</div>
+            <div className="empty">No RMAN backup sets visible yet.</div>
           ) : (
             <table>
-              <thead><tr><th>Finished</th><th>Type</th><th>Status</th><th className="num">Size (MB)</th></tr></thead>
+              <thead><tr><th>Finished</th><th>What was backed up</th><th className="num">Seconds</th><th className="num">Pieces</th></tr></thead>
               <tbody>
                 {rowsOf(h.backups).map((b, i) => (
-                  <tr key={i}><td>{str(b.end_time)}</td><td>{str(b.input_type)}</td><td><Pill text={str(b.status)} /></td><td className="num">{str(b.output_mb)}</td></tr>
+                  <tr key={i}><td>{str(b.end_time)}</td><td>{str(b.input_type)}</td><td className="num">{str(b.elapsed_seconds)}</td><td className="num">{str(b.pieces)}</td></tr>
                 ))}
               </tbody>
             </table>

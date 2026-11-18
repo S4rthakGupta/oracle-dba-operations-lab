@@ -24,11 +24,15 @@ export const HEALTH: Record<string, string> = {
                                FROM dba_free_space GROUP BY tablespace_name) f
                          ON f.tablespace_name = d.tablespace_name
                  ORDER BY d.tablespace_name`,
-  backups: `SELECT status, input_type,
-                   TO_CHAR(end_time, 'YYYY-MM-DD HH24:MI') AS end_time,
-                   ROUND(output_bytes/1024/1024) AS output_mb
-              FROM v$rman_backup_job_details
-             ORDER BY end_time DESC
+  backups: `SELECT CASE backup_type WHEN 'D' THEN 'Full datafile backup'
+                                    WHEN 'I' THEN 'Incremental backup'
+                                    WHEN 'L' THEN 'Archived logs'
+                                    ELSE backup_type END AS input_type,
+                   TO_CHAR(completion_time, 'YYYY-MM-DD HH24:MI') AS end_time,
+                   elapsed_seconds,
+                   pieces
+              FROM v$backup_set
+             ORDER BY completion_time DESC
              FETCH FIRST 5 ROWS ONLY`,
 };
 
