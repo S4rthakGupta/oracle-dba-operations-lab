@@ -11,8 +11,8 @@ MacBook Pro M4 Pro. Instance `FREE`, pluggable database `FREEPDB1`.
 - [x] Stage 1: Architecture and health checks
 - [x] Stage 2: Retail schema, least-privilege security, live dashboard
 - [x] Stage 3: ARCHIVELOG, RMAN backup, validation, datafile loss drill and recovery
-- [ ] Stage 4: Incidents (blocking sessions, tablespace full)
-- [ ] Stage 5: Enterprise concepts (RAC, ASM, Data Guard, GoldenGate, Exadata): study notes only
+- [ ] Stage 4: Incidents (blocking sessions, tablespace full): scripts and runbooks written, **not yet run and evidenced**
+- [x] Stage 5: Enterprise concepts (RAC, ASM, Data Guard, GoldenGate, Exadata): study notes written (concepts only, not hands-on)
 
 Only items checked above have been done and verified in this lab.
 
@@ -21,6 +21,9 @@ Only items checked above have been done and verified in this lab.
 |---|---|
 | Every command explained, grouped by where it runs | [`docs/COMMANDS.md`](docs/COMMANDS.md) |
 | Runbooks | [`docs/runbooks/`](docs/runbooks/) (ARCHIVELOG, full backup, datafile recovery) |
+| Incident scripts and runbooks (drafted, not yet run) | [`sql/incidents/`](sql/incidents/), runbooks 04 and 05 |
+| Enterprise features study notes | [`docs/ENTERPRISE_STUDY_NOTES.md`](docs/ENTERPRISE_STUDY_NOTES.md) |
+| Demo cue sheet | [`docs/DEMO.md`](docs/DEMO.md) |
 | SQL scripts | [`sql/`](sql/) (monitoring, schema, security) |
 | Live dashboard (Next.js) | [`dashboard/`](dashboard/) |
 | Screenshot evidence | [`evidence/screenshots/`](evidence/screenshots/) |
